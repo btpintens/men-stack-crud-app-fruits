@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= fruit.name %></title> 
+    <title>Fruit Show Page</title> 
   </head>
   <body>
     <h4>Here Is Your Fruit</h4>
     <h1><%= fruit.name %></h1>
+    <% if(fruit.isReadyToEat) { %>
+    <p>This fruit is ready to eat!</p>
+    <% } else { %>
+    <p>This fruit is not ready to eat!</p>
+    <% } %>
+    <form action="/fruits/<%= fruit._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= fruit.name %></button>
+      </form>
+      <a href="/fruit/<%= fruit._id %>/edit">Edit Fruit</a>
+      <a href="/fruits">Back to Fruits</a>
   </body>
 </html>
 
