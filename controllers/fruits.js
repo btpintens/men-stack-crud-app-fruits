@@ -16,6 +16,15 @@ fruitsRouter.get("/fruits/new", (req, res) => {
     res.render("fruits/new")
 });
 
+fruitsRouter.get("/fruits/:id", async (req, res) => {
+    const { id } = req.params
+
+    const fruit = await Fruit.findById(id)
+
+    res.render("fruits/show", { fruit });
+});
+
+
 fruitsRouter.post("/fruits", async (req, res) => {
     let { name, isReadyToEat } = req.body;
 
