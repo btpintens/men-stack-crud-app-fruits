@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const fruitSchema = mongoose.Schema(
+const fruitSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -8,6 +8,6 @@ const fruitSchema = mongoose.Schema(
     isReadyToEat: Boolean, 
 });
 
-const Fruit = mongoose.model("Fruit, fruitSchema");
+const Fruit = mongoose.model("Fruit", fruitSchema);
 
 export default Fruit;
